@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Checkout example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+
+
+
+
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h2>METODO DE HANSON</h2>
+      <p class="lead">Dosificación de Tratamiento Superficial</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Second product</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Agregado 1ra Capa</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Tm</label>
+              <input type="text" class="form-control" id="tm1" placeholder="" value="" required onchange="agregado1capa();">
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Fi</label>
+              <input type="text" class="form-control" id="fi1" placeholder="" value="" required onchange="agregado1capa();">
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+
+            <!-- aqui hay cambio  -->
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">G</label>
+              <input type="text" class="form-control" id="g" placeholder="" required onchange="dosisagregado();">
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">E</label>
+              <select class="form-select" id="e" required onchange="dosisagregado();">
+                <option value="">.......</option>
+                <option value="1.02">2</option>
+                <option value="1.03">3</option>
+                <option value="1.04">4</option>
+                <option value="1.05">5</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">H</label>
+              <input type="text" class="form-control" id="resultadoh" placeholder="" required onchange="dosisagregado();">
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
+        <!--  </div>    -->
+
+          <!-- aqui termina un cmabio-->
+
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Agregado 2da Capa</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Tm</label>
+                  <input type="text" class="form-control" id="tm2" placeholder="" value="" required onchange="agregado2capa();">
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Fi</label>
+                  <input type="text" class="form-control" id="fi2" placeholder="" value="" required onchange="agregado2capa();">
+                  <div class="invalid-feedback">
+                    Valid last name is required.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">G</label>
+              <input type="text" class="form-control" id="g2" placeholder="" required onchange="dosisagregado2();">
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">E</label>
+              <select class="form-select" id="e2" required onchange="dosisagregado2();">
+                <option value="">.......</option>
+                <option value="1.02">2</option>
+                <option value="1.03">3</option>
+                <option value="1.04">4</option>
+                <option value="1.05">5</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">H</label>
+              <input type="text" class="form-control" id="resultadoh2" placeholder="" required onchange="dosisagregado2();">
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
+<!-- jjjjjjjjjjjj -->
+
+<div class="col-md-7 col-lg-8">
+  <h4 class="mb-3">Ligante 1ra Capa </h4>
+</div>
+<div class="col-md-5">
+  <label for="country" class="form-label">H</label>
+  <input type="text" class="form-control" id="resultadoh" placeholder="" onchange="ligante1();">  
+  <div class="invalid-feedback">
+    Please select a valid country.
+  </div>
+</div>
+
+<div class="col-md-4">
+  <label for="state" class="form-label">T</label>
+  <select class="form-select" id="t" required onchange="ligante1();">
+    <option value="">.......</option>
+    <option value="0.85"><100</option>
+    <option value="0.75">100-500</option>
+    <option value="0.70">500-1000</option>
+    <option value="0.65">1000-2000</option>
+    <option value="0.60">>2000</option>
+  </select>
+  <div class="invalid-feedback">
+    Please provide a valid state.
+  </div>
+</div>
+
+<div class="col-md-3">
+  <label for="zip" class="form-label">P</label>
+  <select class="form-select" id="p" required onchange="ligante1();">
+    <option value="">.......</option>
+    <option value="0.85">Negra, Asfalto Liso</option>
+    <option value="0.00">Lisa, No Porosa</option>
+    <option value="0.27">Ligeramante Porosa, Oxidada y Picada</option>
+    <option value="0.40">Gravemente Porosa, Oxidada y Picada</option>
+  </select>
+  <div class="invalid-feedback">
+    Zip code required.
+  </div>
+</div>
+
+<div class="col-md-7 col-lg-8">
+  <h4 class="mb-3">Ligante 2da Capa</h4>
+</div>
+<div class="col-md-5">
+  <label for="country" class="form-label">H</label>
+  <input type="text" class="form-control" id="resultadoh2" placeholder="" required>
+  <div class="invalid-feedback">
+    Please select a valid country.
+  </div>
+</div>
+
+<div class="col-md-4">
+  <label for="state" class="form-label">T</label>
+  <input type="text" class="form-control" id="zip" placeholder="" required>
+  <div class="invalid-feedback">
+    Please provide a valid state.
+  </div>
+</div>
+
+<div class="col-md-3">
+  <label for="zip" class="form-label">P</label>
+  <input type="text" class="form-control" id="zip" placeholder="" required>
+  <div class="invalid-feedback">
+    Zip code required.
+  </div>
+</div>
+
+
+
+<div class="col-md-7 col-lg-8">
+  <h4 class="mb-3">Dosificacion 1ra Capa</h4>
+</div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Agregado</label>
+              <input type="text" class="form-control" id="resultado1" placeholder="Kg/m²" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">Ligante <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="resultadol1" placeholder="L/m²">
+            </div>
+
+            <div class="col-md-7 col-lg-8">
+              <h4 class="mb-3">Dosificacion 2da Capa</h4>
+            </div>
+
+                        <div class="col-12">
+                          <label for="address" class="form-label">Agregado</label>
+                          <input type="text" class="form-control" id="resultado2" placeholder="Kg/m²" required>
+                          <div class="invalid-feedback">
+                            Please enter your shipping address.
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <label for="address2" class="form-label">Ligante<span class="text-muted">(Optional)</span></label>
+                          <input type="text" class="form-control" id="address2" placeholder="L/m²">
+                        </div>
+
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+          </div>
+
+
+
+          <hr class="my-4">
+
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017–2022 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+// si la respuesta que se espera es sumar
+    function agregado1capa(){
+      var tm1 = document.getElementById('tm1').value;
+      var fi1 = document.getElementById('fi1').value;
+
+    if(tm1!=='' && fi1!==''){
+        var h1 = parseFloat(tm1)/(1.139285+0.011506*(parseFloat(fi1)/100));
+        document.getElementById('resultadoh').value = h1;
+        }
+    }
+
+    function dosisagregado(){
+      var g = document.getElementById('g').value;
+      var resultadoh = document.getElementById('resultadoh').value;
+      var e = document.getElementById('e').value;
+
+    if(g!=='' && resultadoh!=='' && e!==''){
+        var dosis = 0.80*parseFloat(g)*parseFloat(resultadoh)*parseFloat(e);
+        document.getElementById('resultado1').value = dosis;
+        }
+    }
+
+    function agregado2capa(){
+      var tm2 = document.getElementById('tm2').value;
+      var fi2 = document.getElementById('fi2').value;
+
+    if(tm2!=='' && fi2!==''){
+        var h2 = parseFloat(tm2)/(1.139285+0.011506*(parseFloat(fi2)/100));
+        document.getElementById('resultadoh2').value = h2;
+        }
+    }
+
+    function dosisagregado2(){
+      var g2 = document.getElementById('g2').value;
+      var resultadoh2 = document.getElementById('resultadoh2').value;
+      var e2 = document.getElementById('e2').value;
+
+    if(g2!=='' && resultadoh2!=='' && e2!==''){
+        var dosis2 = 0.80*parseFloat(g2)*parseFloat(resultadoh2)*parseFloat(e2);
+        document.getElementById('resultado2').value = dosis2;
+        }
+    }
+
+
+    function ligante1(){
+      var t = document.getElementById('t').value;
+      var resultadoh = document.getElementById('resultadoh').value;
+      var p = document.getElementById('p').value;
+
+    if(t!=='' && resultadoh!=='' && p!==''){
+        var ligante = 0.20*parseFloat(resultadoh)*parseFloat(t)+parseFloat(p);
+        document.getElementById('resultadol1').value = ligante;
+        }
+    }
+</script>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="form-validation.js"></script>
+  </body>
+</html>
